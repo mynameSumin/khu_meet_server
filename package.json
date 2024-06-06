@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/mynameSumin/khu_meet_server/issues"
   },
-  "homepage": "https://github.com/mynameSumin/khu_meet_server#readme"
+  "homepage": "https://github.com/mynameSumin/khu_meet_server#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.1",
+    "request": "^2.88.2"
+  }
 }

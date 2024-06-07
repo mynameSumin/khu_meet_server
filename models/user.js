@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     studentId: { type: String, required: true },
     introduction: { type: String, required: true },
     mbti: { type: String, required: true },
+    imagePaths: { type: [String], default: []}
 });
 
 const univModel = (univName) => {

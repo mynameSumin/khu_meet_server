@@ -1,8 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+
+//라우터 가져오기
 const userRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
+const questionRoutes = require('./routes/questions');
+const optionRoutes = require('./routes/options');
+const selectionRoutes = require('./routes/selections');
 
 const app = express();
 
@@ -31,6 +36,9 @@ app.get('/', (req, res)=>{
 //라우터 설정
 app.use('/users', userRoutes);
 app.use('/login', loginRoutes);
+app.use('/questions', questionRoutes);
+app.use('/selections', selectionRoutes);
+app.use('/options', optionRoutes);
 
 //서버 시작
 const PORT = 3000;

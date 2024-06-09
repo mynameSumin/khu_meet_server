@@ -5,6 +5,7 @@ const univModel = require('../models/user');
 const multer = require('multer');
 const router = express.Router();
 let map = new Map();
+let users = [];
 
 // 이미지를 저장할 경로 설정
 const storage = multer.diskStorage({
@@ -49,6 +50,20 @@ router.post('/:univ', upload.array('images', 10), async (req, res) => {
     console.log(error);
   }
 });
+
+// 같은 학교의 모든 사용자 정보 불러오기
+router.get('/:univ', async (req, res) => {
+  try{
+    let { univ } = req.params;
+    univ = decodeURIComponent(univ);
+    const userModel = univModel(univ);
+    const users = await userModel.find();
+  res.status(200).json(users);
+  }catch (error) {
+    res.status(400).json({ message: 'Error fetching users', error });
+  }
+});
+
 
 
 

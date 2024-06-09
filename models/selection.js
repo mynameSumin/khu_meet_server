@@ -15,4 +15,7 @@ const selectionSchema = new mongoose.Schema({
     }
 });
 
+// 고유 인덱스 설정
+selectionSchema.index({ user_id: 1, question_id: 1, option_id: 1 }, { unique: true });
+
 module.exports = mongoose.model('selection', selectionSchema);
